@@ -36,7 +36,7 @@ borrowRoutes.post("/", async (req: Request, res: Response) => {
 borrowRoutes.get("/", async (req: Request, res: Response) => {
   try {
     const data = await Borrow.aggregate([
-      { $group: { _id: "$book", totalQuantity: { $sum: 1 } } },
+      { $group: { _id: "$book", totalQuantity: { $sum: "$quantity" } } },
       {
         $lookup: {
           from: "books",

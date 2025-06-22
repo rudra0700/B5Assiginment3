@@ -36,13 +36,13 @@ exports.booksRoutes.post("/", (req, res) => __awaiter(void 0, void 0, void 0, fu
 }));
 exports.booksRoutes.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { filter, limit = "10" } = req.query;
-        console.log(limit);
+        const { filter, sortBy = "createdAt", limit = "10" } = req.query;
+        const sortOrder = req.query.sort === 'asc' ? 1 : -1;
         const filterOptions = {};
         if (filter) {
             filterOptions.genre = filter;
         }
-        const data = yield books_model_1.Book.find(filterOptions).limit(parseInt(limit));
+        const data = yield books_model_1.Book.find(filterOptions).sort({ [sortBy]: sortOrder }).limit(parseInt(limit));
         res.status(200).json({
             success: true,
             message: "found all books",
