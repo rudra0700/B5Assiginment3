@@ -19,8 +19,8 @@ A full-featured Library Management REST API built using **Express.js**, **TypeSc
 ## 📦 Project Setup
 
 ```bash
-git clone https://github.com/your-username/library-management.git
-cd library-management
+git clone https://github.com/rudra0700/B5Assiginment3
+cd B5Assignment3
 npm install
 npm run dev
 ```
